@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="cambiar">Cambiar texto</button>
+    <h1 id="ashe1">este es el primer texto</h1>
+
+    <form action="" >
+        nombre <input type="text" id="nombre" name="nombre"><br>
+        contraseña <input type="password" id="contraseña" name="contraseña"><br>
+        <input id="boton" type="submid" value="enviar"><br>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            
+            //alert("jQuery funciono!");
+
+            // Ejemplo de un evento click
+            let txt = true;
+           
+            $("#cambiar").click(function() {
+                
+                if(txt) {
+                    $("#ashe1").text("Este es el nuevo texto")
+                    txt = false;
+                } else {
+                    $("#ashe1").text("Este es el primer texto")
+                    txt = true;
+                }
+            })
+        
+            // Ejemplo de un formulario de inicio de sesión
+            let usuario = {
+                nombre: "mario",
+                contraseña: "123456",
+                edad: 22 
+            }
+
+
+
+            $("#boton").click(function(e) {
+                e.preventDefault();
+                let nombre = $("#nombre").val();
+                let contraseña = $("#contraseña").val();
+
+                      
+                    if(usuario.nombre == nombre && usuario.contraseña == contraseña) {
+
+                        if( usuario.edad >= 18) { 
+                            alert("Bienvenido " + usuario.nombre);
+                        } else {
+                            alert("No tienes la edad suficiente");
+                        }
+                    
+                    } else {
+                        alert("Usuario o contraseña incorrectos");
+                    }
+
+            })
+        })   
+        
+    </script>
+</body>
+</html>
